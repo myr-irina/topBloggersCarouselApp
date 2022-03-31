@@ -8,12 +8,8 @@ function Slider() {
 				<img alt='' className='decoration-top__image' />
 			</div>
 			<div className='arrow'>
-				<p>
-					<img className='arrow-left_image' />
-				</p>
-				<p>
-					<img className='arrow-right_image' />
-				</p>
+				<button className='button-left'></button>
+				<button className='button-right'></button>
 			</div>
 
 			<section className='slider'>

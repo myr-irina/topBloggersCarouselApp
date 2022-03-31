@@ -16,7 +16,6 @@
 	top: 0;
 	right: -145px;
 	overflow: hidden;
-	/* z-index: -1; */
 	border: 0;
 	outline: none;
 }
@@ -28,18 +27,18 @@
 	margin: 31px auto 20px;
 }
 
-.arrow-left_image {
+.button-left {
 	width: 48px;
 	height: 48px;
 	background: url("./../../images/left-circle.svg") no-repeat center;
-	border: none !important;
+	border: none;
 	outline: none;
 	margin: 0 19px 0 0;
 	padding: 0;
 	cursor: pointer;
 }
 
-.arrow-right_image {
+.button-right {
 	width: 48px;
 	height: 48px;
 	background: url("./../../images/right-circle.svg") no-repeat center;
@@ -71,6 +70,8 @@
 	width: 290px;
 	height: 320px;
 	background: url("./../../images/man-photo.png") no-repeat center;
+	border: 0;
+	outline: none;
 }
 
 .card__title {

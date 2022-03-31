@@ -37,7 +37,7 @@
 .citation-sign {
 	width: 100px;
 	height: 78px;
-	background: url("./../images/citation-sign.png") no-repeat center;
+	background: url("./../images/citation.svg") no-repeat center;
 	border: 0;
 	outline: none;
 }
