@@ -3,7 +3,10 @@ import "./Slider.css";
 
 function Slider() {
 	return (
-		<>
+		<div className='slider__container'>
+			<div className='decoration-top'>
+				<img alt='' className='decoration-top__image' />
+			</div>
 			<div className='arrow'>
 				<p>
 					<img className='arrow-left_image' />
@@ -12,6 +15,7 @@ function Slider() {
 					<img className='arrow-right_image' />
 				</p>
 			</div>
+
 			<section className='slider'>
 				<div className='slider__card'>
 					<img className='slider__image' alt='' />
@@ -34,7 +38,7 @@ function Slider() {
 					<div className='card__subtitile'>Delphine</div>
 				</div>
 			</section>
-		</>
+		</div>
 	);
 }
 
