@@ -21,3 +21,15 @@
 	text-align: center;
 	color: #606f81;
 }
+
+
+@media screen and (max-width: 475px) {
+	.title {
+		font-size: 32px;
+	}
+
+	.subtitle {
+		font-size: 18px;
+	}
+
+}
