@@ -60,39 +60,7 @@
 	padding: 0;
 }
 
-.slider__card {
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-}
-
-.slider__image {
-	width: 290px;
-	height: 320px;
-	background: url("./../../images/man-photo.png") no-repeat center;
-	object-fit: cover;
-}
-
-.card__title {
-	font-weight: 500;
-	font-size: 24px;
-	line-height: 36px;
-	color: #384758;
-	margin-top: 20px;
-}
-
-.card__subtitile {
-	font-weight: 400;
-	font-size: 18px;
-	line-height: 27px;
-	color: #606f81;
-}
-
 @media screen and (max-width: 1350px) {
-	.slider__image {
-		width: 220px;
-	}
-
 	.slider {
 		grid-gap: 24px;
 	}
@@ -103,22 +71,8 @@
 }
 
 @media screen and (max-width: 1042px) {
-	.slider__image {
-		width: 200px;
-	}
-
 	.decoration-top__image {
 		right: -60px;
-	}
-
-	.card__title {
-		font-size: 20px;
-		line-height: 33px;
-	}
-
-	.card__subtitile {
-		font-size: 16px;
-		line-height: 24px;
 	}
 }
 
@@ -140,18 +94,6 @@
 	.slider {
 		grid-template-columns: 1fr;
 		width: 100%;
-	}
-
-	.slider__image {
-		width: 100%;
-	}
-
-	.card__title {
-		align-self: center;
-	}
-
-	.card__subtitile {
-		align-self: center;
 	}
 
 	.decoration-top__image {
