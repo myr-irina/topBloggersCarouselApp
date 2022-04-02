@@ -1,0 +1,47 @@
+.decoration-top {
+	margin-top: 54px;
+	width: 311px;
+	height: 330px;
+	background: url("./../../images/decoration_top.png") no-repeat center;
+	background-size: contain;
+	object-fit: contain;
+	position: absolute;
+	top: 175px;
+	right: -135px;
+	overflow: hidden;
+	border: 0;
+	outline: none;
+}
+
+@media screen and (max-width: 1350px) {
+	.decoration-top {
+		right: -95px;
+	}
+}
+
+@media screen and (max-width: 1042px) {
+	.decoration-top {
+		right: -60px;
+	}
+}
+
+@media screen and (max-width: 933px) {
+	.decoration-top {
+		width: 211px;
+		height: 230px;
+		right: -60px;
+		top: 10px;
+	}
+}
+
+@media screen and (max-width: 475px) {
+	.decoration-top {
+		right: -10px;
+	}
+}
+
+@media screen and (max-width: 429px) {
+	.decoration-top {
+		display: none;
+	}
+}

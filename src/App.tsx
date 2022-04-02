@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import "./styles/App.css";
-import Slider from "./components/Slider/Slider";
+import Main from "./components/Main/Main";
 import Header from "./components/Header/Header";
 import TextBlock from "./components/TextBlock/TextBlock";
 import axios from "axios";
@@ -12,7 +12,6 @@ function App() {
 		const response = await axios.get(
 			"https://jsonplaceholder.typicode.com/users"
 		);
-		console.log(response.data[0])
 		setUsers(response.data);
 	}
 
@@ -24,7 +23,7 @@ function App() {
 		<div className='App'>
 			<div className='container'>
 				<Header />
-				<Slider users={users} />
+				<Main users={users} />
 				<TextBlock />
 			</div>
 		</div>
