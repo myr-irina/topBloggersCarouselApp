@@ -5,7 +5,7 @@
 }
 
 .card__image {
-	min-width: 290px;
+	width: 290px;
 	height: 320px;
 	background: url("./../../images/man-photo.png") no-repeat center;
 	object-fit: cover;
