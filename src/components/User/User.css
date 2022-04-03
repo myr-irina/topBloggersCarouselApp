@@ -14,7 +14,7 @@
 }
 
 .card__image-active {
-	border-bottom: #fe8700;
+	border-bottom: 5px solid #fe8700;
 }
 
 .card__title {

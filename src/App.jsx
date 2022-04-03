@@ -10,12 +10,17 @@ function App() {
 	const [isLoading, setIsLoading] = useState(true);
 	const [error, setError] = useState(false);
 	const [posts, setPosts] = useState([]);
+	const [selectedCard, setSelectedCard] = useState({});
+
+	function handleCardClick(card) {
+		console.log(card);
+		setSelectedCard(card);
+	}
 
 	useEffect(() => {
 		axios
 			.get("https://jsonplaceholder.typicode.com/users")
 			.then((res) => {
-				console.log(res)
 				setIsLoading(false);
 				setError(false);
 				setUsers(res.data);
@@ -36,7 +41,6 @@ function App() {
 		axios
 			.get("https://jsonplaceholder.typicode.com/posts")
 			.then((res) => {
-				console.log(res)
 				setIsLoading(false);
 				setError(false);
 				setPosts(res.data);
@@ -57,8 +61,12 @@ function App() {
 		<div className='App'>
 			<div className='container'>
 				<Header />
-				<Main users={users} />
-				<TextBlock users={users} />
+				<Main
+					users={users}
+					handleCardClick={handleCardClick}
+					selectedCard={selectedCard}
+				/>
+				<TextBlock selectedCard={selectedCard} posts={posts} />
 			</div>
 		</div>
 	);
