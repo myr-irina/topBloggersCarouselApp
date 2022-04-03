@@ -37,6 +37,7 @@ function Slider({ users }) {
 		});
 	}
 
+	
 	return (
 		<div className='main__container'>
 			<div className='window'>

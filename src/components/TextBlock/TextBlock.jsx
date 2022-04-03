@@ -2,7 +2,8 @@ import React from "react";
 import TextItem from "../TextItem/TextItem";
 import "./TextBlock.css";
 
-function TextBlock() {
+function TextBlock({users}) {
+	console.log(users)
 	return (
 		<section className='wrapper'>
 			<div className='left-column'>
@@ -11,7 +12,7 @@ function TextBlock() {
 			</div>
 
 			<section className='text-block'>
-				<h2 className='text-block__title'>3 актуальных поста Moriah.Stanton</h2>
+				<h2 className='text-block__title'>3 актуальных поста {users.name}</h2>
 				<TextItem />
 				<TextItem />
 				<TextItem />

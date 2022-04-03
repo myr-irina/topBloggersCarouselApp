@@ -7,16 +7,49 @@ import axios from "axios";
 
 function App() {
 	const [users, setUsers] = useState([]);
-
-	async function fetchUsers() {
-		const response = await axios.get(
-			"https://jsonplaceholder.typicode.com/users"
-		);
-		setUsers(response.data);
-	}
+	const [isLoading, setIsLoading] = useState(true);
+	const [error, setError] = useState(false);
+	const [posts, setPosts] = useState([]);
 
 	useEffect(() => {
-		fetchUsers();
+		axios
+			.get("https://jsonplaceholder.typicode.com/users")
+			.then((res) => {
+				setIsLoading(false);
+				setError(false);
+				setUsers(res.data);
+			})
+			.catch((err) => {
+				if (err === "404" || err === "500") {
+					setError(true);
+					setIsLoading(false);
+					setUsers([]);
+				}
+				console.log("Невозможно получить данные с сервера", err);
+				setIsLoading(false);
+				setUsers([]);
+			});
+	}, []);
+
+	useEffect(() => {
+		axios
+			.get("https://jsonplaceholder.typicode.com/posts")
+			.then((res) => {
+				console.log(res)
+				setIsLoading(false);
+				setError(false);
+				setPosts(res.data);
+			})
+			.catch((err) => {
+				if (err === "404" || err === "500") {
+					setError(true);
+					setIsLoading(false);
+					setPosts([]);
+				}
+				console.log("Невозможно получить данные с сервера", err);
+				setIsLoading(false);
+				setPosts([]);
+			});
 	}, []);
 
 	return (
@@ -24,7 +57,7 @@ function App() {
 			<div className='container'>
 				<Header />
 				<Main users={users} />
-				<TextBlock />
+				<TextBlock users={users} />
 			</div>
 		</div>
 	);
