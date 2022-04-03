@@ -6,8 +6,9 @@ import {
 	MAX_VISIBLE_ELEMENTS,
 } from "./../../utils/constants";
 import { useState } from "react";
+import Preloader from "../Preloader/Preloader";
 
-function Slider({ users, selectedCard, handleCardClick }) {
+function Slider({ users, selectedCard, handleCardClick, isLoading }) {
 	const [offSet, setOffset] = useState(0);
 	const minOffset = -((ITEM_WIDTH + MARGIN_WIDTH) * (users.length - 1));
 	const maxOffset = (ITEM_WIDTH + MARGIN_WIDTH) * MAX_VISIBLE_ELEMENTS;
@@ -30,12 +31,11 @@ function Slider({ users, selectedCard, handleCardClick }) {
 		<div className='main__container'>
 			<div className='window'>
 				<div className='arrow'>
-					<button className='button-left' onClick={moveSliderLeft}></button>
-					<button className='button-right' onClick={moveSliderRight}></button>
+					<button className='button-left' onClick={moveSliderRight}></button>
+					<button className='button-right' onClick={moveSliderLeft}></button>
 				</div>
 				<section
 					className='all-items-container'
-					// ref={slider}
 					style={{
 						transform: `translateX(${offSet}px)`,
 					}}

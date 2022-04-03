@@ -1,8 +1,7 @@
-import React from "react";
 import TextItem from "../TextItem/TextItem";
 import "./TextBlock.css";
 
-function TextBlock({ selectedCard, posts }) {
+function TextBlock({ selectedCard, posts, isPostsLoading }) {
 	return (
 		<section className='wrapper'>
 			<div className='left-column'>
@@ -14,13 +13,14 @@ function TextBlock({ selectedCard, posts }) {
 				<h2 className='text-block__title'>
 					3 актуальных поста {selectedCard.name}
 				</h2>
-				{posts &&
+				{isPostsLoading ? (
+					<h2>Идет загрузка постов...</h2>
+				) : (
+					posts &&
 					posts.slice(0, 3).map((post) => {
 						return <TextItem post={post} key={post.id} />;
-					})}
-				{/* <TextItem />
-				<TextItem />
-				<TextItem /> */}
+					})
+				)}
 			</section>
 		</section>
 	);

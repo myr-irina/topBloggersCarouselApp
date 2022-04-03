@@ -1,10 +1,10 @@
 import "./User.css";
-import { useState } from "react";
 
 function User({ user, handleCardClick, selectedCard }) {
+	console.log(selectedCard)
+	
 	return (
 		<div className='slider__card' onClick={handleCardClick}>
-			{/* <img className=`card__image ${isActive ? 'card__image-active' : 'card__image'}` src={"https://i.pravatar.cc/"} alt='' /> */}
 			<img
 				className='card__image'
 				src={`https://i.pravatar.cc/?u=${user.id}`}
