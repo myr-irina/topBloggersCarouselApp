@@ -2,6 +2,8 @@
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
+	cursor: pointer;
+	margin-right: 34px;
 }
 
 .card__image {
@@ -9,6 +11,10 @@
 	height: 320px;
 	/* background: url("./../../images/man-photo.png") no-repeat center; */
 	object-fit: cover;
+}
+
+.card__image-active {
+	border-bottom: #fe8700;
 }
 
 .card__title {
@@ -19,11 +25,19 @@
 	margin-top: 20px;
 }
 
+.card__title-active {
+	color: #fe8700;
+}
+
 .card__subtitile {
 	font-weight: 400;
 	font-size: 18px;
 	line-height: 27px;
 	color: #606f81;
+}
+
+.card__subtitle-active {
+	color: #fe8700;
 }
 
 @media screen and (max-width: 1350px) {

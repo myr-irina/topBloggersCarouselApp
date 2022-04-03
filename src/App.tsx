@@ -15,6 +15,7 @@ function App() {
 		axios
 			.get("https://jsonplaceholder.typicode.com/users")
 			.then((res) => {
+				console.log(res)
 				setIsLoading(false);
 				setError(false);
 				setUsers(res.data);

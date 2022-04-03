@@ -1,55 +1,44 @@
 import "./Slider.css";
 import User from "../User/User";
 import { ITEM_WIDTH } from "./../../utils/constants";
-
-import { useCallback, useState, useEffect, useRef } from "react";
-import {
-	CARDS_FOR_MAX_WIN_SIZE,
-	CARDS_FOR_MEDIUM_WIN_SIZE,
-	CARDS_FOR_MIN_WIN_SIZE,
-} from "./../../utils/constants";
-import { transpile } from "typescript";
-import { func } from "prop-types";
+import { useState } from "react";
 
 function Slider({ users }) {
 	const [offSet, setOffset] = useState(0);
+	const [isActive, setIsActive] = useState(false);
 
-	function handleLeftArrowClick() {
-		console.log("handleLeftArrowClick");
+	const MARGIN_WIDTH = 34;
+	const MAX_VISIBLE_ELEMENTS = 4;
+	const minOffset = -((ITEM_WIDTH + MARGIN_WIDTH) * (users.length - 1));
+	const maxOffset = (ITEM_WIDTH + MARGIN_WIDTH) * (MAX_VISIBLE_ELEMENTS);
 
+	function moveSliderLeft() {
 		setOffset((currentOffset) => {
-			const newOffset = currentOffset + ITEM_WIDTH;
-
+			const newOffset = currentOffset - ITEM_WIDTH - MARGIN_WIDTH;
 			console.log(newOffset);
-			return Math.min(newOffset, 0);
+			return newOffset <= minOffset ? 0 : newOffset;
 		});
 	}
 
-	function handleRightArrowClick() {
-		console.log("handleRightArrowClick");
-
+	function moveSliderRight() {
 		setOffset((currentOffset) => {
-			console.log(currentOffset)
-			const newOffset = currentOffset - ITEM_WIDTH;
+			console.log(currentOffset);
+			const newOffset = currentOffset + ITEM_WIDTH + MARGIN_WIDTH;
 
-			const maxOffset = -(ITEM_WIDTH * (users.length - 1));
-			return Math.max(newOffset, maxOffset);
+			return newOffset >= maxOffset ? 0 : newOffset;
 		});
 	}
 
-	
+	function handleImageClick() {
+		setIsActive(true);
+	}
+
 	return (
 		<div className='main__container'>
 			<div className='window'>
 				<div className='arrow'>
-					<button
-						className='button-left'
-						onClick={handleLeftArrowClick}
-					></button>
-					<button
-						className='button-right'
-						onClick={handleRightArrowClick}
-					></button>
+					<button className='button-left' onClick={moveSliderLeft}></button>
+					<button className='button-right' onClick={moveSliderRight}></button>
 				</div>
 				<section
 					className='all-items-container'
@@ -59,8 +48,15 @@ function Slider({ users }) {
 					}}
 				>
 					{users &&
-						users.map((user, id) => {
-							return <User user={user} key={id} />;
+						users.map((user) => {
+							return (
+								<User
+									user={user}
+									key={user.id}
+									handleImageClick={handleImageClick}
+									isActive={isActive}
+								/>
+							);
 						})}
 				</section>
 			</div>
