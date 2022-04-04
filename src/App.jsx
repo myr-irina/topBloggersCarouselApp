@@ -13,15 +13,23 @@ function App() {
 	const [error, setError] = useState(false);
 	const [posts, setPosts] = useState([]);
 	const [selectedCard, setSelectedCard] = useState({
+		//TODO вставить первого пользователя по дефолту
+		id: "",
 		name: "",
 		company: "",
 	});
 
 	function handleCardClick(card) {
-		setSelectedCard(card);
+		setSelectedCard({
+			id: card.id,
+			card: card.name,
+			company: card.company.name,
+		});
 	}
 
-	// const selectedPost = selectedCard ? posts.filter(post => post.id === selectedCard)
+	const visiblePosts = selectedCard.id
+		? posts.filter((post) => selectedCard.id === post.userId)
+		: posts.filter((post) => 1 === post.userId);
 
 	useEffect(() => {
 		axios
@@ -30,6 +38,7 @@ function App() {
 				setIsCardLoading(true);
 				setError(false);
 				setUsers(res.data);
+				setSelectedCard(res.data[0]);
 				setIsCardLoading(false);
 			})
 			.catch((err) => {
@@ -69,18 +78,20 @@ function App() {
 		<div className='App'>
 			<div className='container'>
 				<Header />
-
 				<Main
 					isLoading={isCardLoading}
 					users={users}
 					handleCardClick={handleCardClick}
 					selectedCard={selectedCard}
 				/>
-				<TextBlock
-					selectedCard={selectedCard}
-					posts={posts}
-					isPostsLoading={isPostsLoading}
-				/>
+				{!isCardLoading && !isPostsLoading && (
+					<TextBlock
+						selectedCard={selectedCard}
+						posts={visiblePosts}
+						isPostsLoading={isPostsLoading}
+						// selectedPost={selectedPost}
+					/>
+				)}
 			</div>
 		</div>
 	);

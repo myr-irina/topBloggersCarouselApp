@@ -1,7 +1,7 @@
 import TextItem from "../TextItem/TextItem";
 import "./TextBlock.css";
 
-function TextBlock({ selectedCard, posts, isPostsLoading }) {
+function TextBlock({ selectedCard, posts, isPostsLoading, selectedPost }) {
 	return (
 		<section className='wrapper'>
 			<div className='left-column'>

@@ -47,7 +47,7 @@ function Slider({ users, selectedCard, handleCardClick, isLoading }) {
 									user={user}
 									key={user.id}
 									handleCardClick={handleCardClick}
-									selectedCard={selectedCard}
+									isSelected={selectedCard.id === user.id}
 								/>
 							);
 						})}
