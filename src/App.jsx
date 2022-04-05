@@ -3,7 +3,6 @@ import "./styles/App.css";
 import Main from "./components/Main/Main";
 import Header from "./components/Header/Header";
 import TextBlock from "./components/TextBlock/TextBlock";
-import Preloader from "./components/Preloader/Preloader";
 import axios from "axios";
 
 function App() {
@@ -13,7 +12,6 @@ function App() {
 	const [error, setError] = useState(false);
 	const [posts, setPosts] = useState([]);
 	const [selectedCard, setSelectedCard] = useState({
-		//TODO вставить первого пользователя по дефолту
 		id: "",
 		name: "",
 		company: "",
@@ -89,7 +87,6 @@ function App() {
 						selectedCard={selectedCard}
 						posts={visiblePosts}
 						isPostsLoading={isPostsLoading}
-						// selectedPost={selectedPost}
 					/>
 				)}
 			</div>
