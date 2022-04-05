@@ -15,7 +15,7 @@ function TextBlock({ selectedCard, posts, isPostsLoading }) {
 					3 актуальных поста {selectedCard.card}
 				</h2>
 				{isPostsLoading ? (
-					<Preloader />
+				<h2>Идет загрузка</h2>
 				) : (
 					posts &&
 					posts.slice(0, 3).map((post) => {

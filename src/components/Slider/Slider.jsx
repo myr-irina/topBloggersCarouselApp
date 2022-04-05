@@ -34,24 +34,28 @@ function Slider({ users, selectedCard, handleCardClick, isLoading }) {
 					<button className='button-left' onClick={moveSliderRight}></button>
 					<button className='button-right' onClick={moveSliderLeft}></button>
 				</div>
-				<section
-					className='all-items-container'
-					style={{
-						transform: `translateX(${offSet}px)`,
-					}}
-				>
-					{users &&
-						users.map((user) => {
-							return (
-								<User
-									user={user}
-									key={user.id}
-									handleCardClick={handleCardClick}
-									isSelected={selectedCard.id === user.id}
-								/>
-							);
-						})}
-				</section>
+				{isLoading ? (
+					<Preloader />
+				) : (
+					<section
+						className='all-items-container'
+						style={{
+							transform: `translateX(${offSet}px)`,
+						}}
+					>
+						{users &&
+							users.map((user) => {
+								return (
+									<User
+										user={user}
+										key={user.id}
+										handleCardClick={handleCardClick}
+										isSelected={selectedCard.id === user.id}
+									/>
+								);
+							})}
+					</section>
+				)}
 			</div>
 		</div>
 	);

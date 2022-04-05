@@ -1,4 +1,3 @@
-import React from "react";
 import "./TextItem.css";
 
 function TextItem({ post }) {

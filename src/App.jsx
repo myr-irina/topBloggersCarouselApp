@@ -7,8 +7,8 @@ import axios from "axios";
 
 function App() {
 	const [users, setUsers] = useState([]);
-	const [isCardLoading, setIsCardLoading] = useState(false);
-	const [isPostsLoading, setIsPostsLoading] = useState(false);
+	const [isCardLoading, setIsCardLoading] = useState(true);
+	const [isPostsLoading, setIsPostsLoading] = useState(true);
 	const [error, setError] = useState(false);
 	const [posts, setPosts] = useState([]);
 	const [selectedCard, setSelectedCard] = useState({
