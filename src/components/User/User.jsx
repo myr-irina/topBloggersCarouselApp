@@ -6,7 +6,7 @@ function User({ user, handleCardClick, isSelected }) {
 			<img
 				className={`card__image ${isSelected ? "card__image-active" : ""}`}
 				src={`https://i.pravatar.cc/?u=${user.id}`}
-				alt=''
+				alt='фото пользователя'
 			/>
 			<div className={`card__title ${isSelected ? "card__title-active" : ""}`}>
 				{user.name}
