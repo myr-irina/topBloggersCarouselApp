@@ -42,7 +42,6 @@ function App() {
 				setError(false);
 				setUsers(res.data);
 				setSelectedCard(res.data[0]);
-				// setTitle(res.data[0].name);
 				setIsCardLoading(false);
 			})
 			.catch((err) => {

@@ -15,15 +15,15 @@ function Slider({ users, selectedCard, handleCardClick, isLoading }) {
 
 	function moveSliderLeft() {
 		setOffset((currentOffset) => {
-			const newOffset = currentOffset - ITEM_WIDTH - MARGIN_WIDTH;
-			return newOffset <= minOffset ? 0 : newOffset;
+			const newOffset = currentOffset + ITEM_WIDTH + MARGIN_WIDTH;
+			return newOffset >= maxOffset ? 0 : newOffset;
 		});
 	}
 
 	function moveSliderRight() {
 		setOffset((currentOffset) => {
-			const newOffset = currentOffset + ITEM_WIDTH + MARGIN_WIDTH;
-			return newOffset >= maxOffset ? 0 : newOffset;
+			const newOffset = currentOffset - ITEM_WIDTH - MARGIN_WIDTH;
+			return newOffset <= minOffset ? 0 : newOffset;
 		});
 	}
 
@@ -31,8 +31,8 @@ function Slider({ users, selectedCard, handleCardClick, isLoading }) {
 		<div className='main__container'>
 			<div className='window'>
 				<div className='arrow'>
-					<button className='button-left' onClick={moveSliderRight}></button>
-					<button className='button-right' onClick={moveSliderLeft}></button>
+					<button className='button-left' onClick={moveSliderLeft}></button>
+					<button className='button-right' onClick={moveSliderRight}></button>
 				</div>
 				{isLoading ? (
 					<Preloader />
