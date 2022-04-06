@@ -1,8 +1,7 @@
 import TextItem from "../TextItem/TextItem";
 import "./TextBlock.css";
-import Preloader from "../Preloader/Preloader";
 
-function TextBlock({ selectedCard, posts, isPostsLoading }) {
+function TextBlock({ posts, isPostsLoading, title }) {
 	return (
 		<section className='wrapper'>
 			<div className='left-column'>
@@ -12,10 +11,10 @@ function TextBlock({ selectedCard, posts, isPostsLoading }) {
 
 			<section className='text-block'>
 				<h2 className='text-block__title'>
-					3 актуальных поста {selectedCard.card}
+					3 актуальных поста {title[0].name}
 				</h2>
 				{isPostsLoading ? (
-				<h2>Идет загрузка</h2>
+					<h2>Идет загрузка...</h2>
 				) : (
 					posts &&
 					posts.slice(0, 3).map((post) => {

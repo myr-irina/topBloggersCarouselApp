@@ -16,6 +16,7 @@ function App() {
 		name: "",
 		company: "",
 	});
+	// const [title, setTitle] = useState("");
 
 	function handleCardClick(card) {
 		setSelectedCard({
@@ -29,6 +30,10 @@ function App() {
 		? posts.filter((post) => selectedCard.id === post.userId)
 		: posts.filter((post) => 1 === post.userId);
 
+	const title = selectedCard.id
+		? users.filter((user) => selectedCard.id === user.id)
+		: users.filter((user) => 1 === user.id);
+
 	useEffect(() => {
 		axios
 			.get("https://jsonplaceholder.typicode.com/users")
@@ -37,6 +42,7 @@ function App() {
 				setError(false);
 				setUsers(res.data);
 				setSelectedCard(res.data[0]);
+				// setTitle(res.data[0].name);
 				setIsCardLoading(false);
 			})
 			.catch((err) => {
@@ -87,6 +93,7 @@ function App() {
 						selectedCard={selectedCard}
 						posts={visiblePosts}
 						isPostsLoading={isPostsLoading}
+						title={title}
 					/>
 				)}
 			</div>
