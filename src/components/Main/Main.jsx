@@ -1,6 +1,7 @@
 import Slider from "./../Slider/Slider";
 import "./Main.css";
 
+
 function Main({ users, handleCardClick, selectedCard, isLoading }) {
 	return (
 		<>

@@ -9,7 +9,6 @@
 .card__image {
 	width: 290px;
 	height: 320px;
-	/* background: url("./../../images/man-photo.png") no-repeat center; */
 	object-fit: cover;
 }
 
@@ -41,15 +40,15 @@
 }
 
 @media screen and (max-width: 1350px) {
-	.card__image {
+	/* .card__image {
 		width: 220px;
-	}
+	} */
 }
 
 @media screen and (max-width: 1042px) {
-	.card__image {
+	/* .card__image {
 		width: 200px;
-	}
+	} */
 
 	.card__title {
 		font-size: 20px;
@@ -63,9 +62,9 @@
 }
 
 @media screen and (max-width: 475px) {
-	.card__image {
+	/* .card__image {
 		width: 100%;
-	}
+	} */
 
 	.card__title {
 		align-self: center;

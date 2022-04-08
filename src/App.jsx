@@ -16,7 +16,7 @@ function App() {
 		name: "",
 		company: "",
 	});
-	// const [title, setTitle] = useState("");
+
 
 	function handleCardClick(card) {
 		setSelectedCard({
@@ -85,7 +85,7 @@ function App() {
 					isLoading={isCardLoading}
 					users={users}
 					handleCardClick={handleCardClick}
-					selectedCard={selectedCard}
+					selectedCard={selectedCard}					
 				/>
 				{!isCardLoading && !isPostsLoading && (
 					<TextBlock

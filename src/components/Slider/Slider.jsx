@@ -1,29 +1,25 @@
 import "./Slider.css";
 import User from "../User/User";
-import {
-	ITEM_WIDTH,
-	MARGIN_WIDTH,
-	MAX_VISIBLE_ELEMENTS,
-} from "./../../utils/constants";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Preloader from "../Preloader/Preloader";
 
 function Slider({ users, selectedCard, handleCardClick, isLoading }) {
-	const [offSet, setOffset] = useState(0);
-	const minOffset = -((ITEM_WIDTH + MARGIN_WIDTH) * (users.length - 1));
-	const maxOffset = (ITEM_WIDTH + MARGIN_WIDTH) * MAX_VISIBLE_ELEMENTS;
+	const [localUsers, setLocalUsers] = useState([]);
+
+	//добавлен useEffect, так как массив users не получается передать в useState
+	useEffect(() => {
+		setLocalUsers([...users]);
+	}, [users]);
 
 	function moveSliderLeft() {
-		setOffset((currentOffset) => {
-			const newOffset = currentOffset + ITEM_WIDTH + MARGIN_WIDTH;
-			return newOffset >= maxOffset ? 0 : newOffset;
+		setLocalUsers((localUsers) => {
+			return [localUsers[localUsers.length - 1], ...localUsers.slice(0, -1)];
 		});
 	}
 
 	function moveSliderRight() {
-		setOffset((currentOffset) => {
-			const newOffset = currentOffset - ITEM_WIDTH - MARGIN_WIDTH;
-			return newOffset <= minOffset ? 0 : newOffset;
+		setLocalUsers((localUsers) => {
+			return [...localUsers.slice(1), localUsers[0]];
 		});
 	}
 
@@ -37,14 +33,9 @@ function Slider({ users, selectedCard, handleCardClick, isLoading }) {
 				{isLoading ? (
 					<Preloader />
 				) : (
-					<section
-						className='all-items-container'
-						style={{
-							transform: `translateX(${offSet}px)`,
-						}}
-					>
-						{users &&
-							users.map((user) => {
+					<section className='all-items-container'>
+						{localUsers &&
+							localUsers.map((user) => {
 								return (
 									<User
 										user={user}
